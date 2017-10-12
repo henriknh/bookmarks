@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+  <script type=text/javascript src="{{url_for('static', filename='js/settings.js') }}"></script>
+</head>
+<body>
+
+  <header>
+    <div class="text">
+      <div class="front">You're a</div>
+      <div class="middle">WIZARD</div>
+      <div class="end">{{ displayname }} ;)</div>
+    </div>
+    <nav>
+      <item id="welcome">Welcome</item>
+      <item id="bookmarks" class="active">Bookmarks</item>
+      <item id="themes">Themes</item>
+      <item id="done">Finalize!</item>
+    </nav>
+    <div class="progress"></div>
+  </header>
+
+<div class="content">
+
+  <div class="bookmarks">
+    {% for category in bookmarks %}
+      <div class="category">
+        <input class="categorytitle" type="text" placeholder="Category title" value="{{ category }}">
+        {% for bookmark in bookmarks[category] %}
+          <div class="bookmark">
+            <div class="left">
+              <input type="text" placeholder="Title" value="{{ bookmark }}">
+              <input type="text" placeholder="URL" value="{{ bookmarks[category][bookmark] }}">
+            </div>
+            <div class="right">
+              <div class="up" onclick="move_bookmark_up(this)"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+              <div class="remove_bookmark" onclick="remove_bookmark_slot(this)"><i class="fa fa-minus" aria-hidden="true"></i></div>
+              <div class="down" onclick="move_bookmark_down(this)"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        {% endfor %}
+        <div class="bookmark_menu">
+          <div class="bookmark_menu_item" onclick="remove_category(this)"><i class="fa fa-trash" aria-hidden="true"></i></div>
+          <div class="bookmark_menu_item" onclick="add_bookmark_slot(this)"><i class="fa fa-plus" aria-hidden="true"></i></div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+
+  <div class="wizard_submenu">
+    <div class="item prev" onclick="#"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</div>
+    <div class="item next" onclick="#">Next <i class="fa fa-angle-right" aria-hidden="true"></i></div>
+  </div>
+</div>
+
+<footer>
+  Henrik Nilsson Harnert
+</footer>
+
+
+</body>
+</html>

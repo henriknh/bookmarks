@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
+  <script type=text/javascript src="{{url_for('static', filename='js/editor.js') }}"></script>
+  <script type=text/javascript src="{{url_for('static', filename='js/bookmarks.js') }}"></script>
+</head>
+<body>
+
+<preview>
+  <a class="left item" href="{{ url_for('settings.themes')}}"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
+  <input id="title" class="left" type="text" placeholder="Title" value="{{ session['editor_title'] }}" autofocus>
+  <div class="right item" onclick="publish();">Save & Use theme <i class="fa fa-check" aria-hidden="true"></i></div>
+  <div class="right item" onclick="preview();">Preview <i class="fa fa-eye" aria-hidden="true"></i></div>
+</preview>
+
+<pre id="editor">{{ session['editor_css'] }}</pre>
+
+<div class="documentation">
+  <div class="bar" onclick="expandDocs(this);"><i class="fa fa-book" aria-hidden="true"></i></div>
+  <div class="docs">
+    <div class="title"><i class="fa fa-book" aria-hidden="true"></i> Documentation</div>
+
+    <div class="tableofcontent">
+      <a href="#docs_gettingstarted">Getting started</a>
+      <a href="#docs_widgets">Widgets</a>
+    </div>
+
+    <div id="docs_gettingstarted" class="section">Getting started</div>
+
+    <div id="docs_widgets" class="section">Widgets</div>
+
+  </div>
+
+
+</div>
+
+<footer>
+  Henrik Nilsson Harnert
+</footer>
+
+<script src="{{ url_for('static', filename='ace/ace.js') }}" type="text/javascript" charset="utf-8"></script>
+<script src="{{ url_for('static', filename='ace/ext-language_tools.js') }}"></script>
+<script>
+  var editor = ace.edit("editor");
+  editor.setTheme("ace/theme/xcode");
+  editor.session.setMode("ace/mode/css");
+  editor.setOptions({
+    enableBasicAutocompletion: true
+  });
+</script>
+
+</body>
+</html>

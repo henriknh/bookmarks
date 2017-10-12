@@ -1,0 +1,242 @@
+
+/*
+ *  SIDEBAR
+ */
+
+.sidebar {
+  position: relative;
+  min-width: 330px;
+  background-color: var(--accent-bg-color);
+  width: 25%;
+  height: 100%;
+  float: left;
+  box-shadow: 1px 0px 5px var(--gray);
+}
+.sidebar .item {
+  margin: 25px 25px 25px 25px;
+  display: block;
+  text-align: right;
+}
+.sidebar .title {
+  font-size: 48px;
+  color: var(--dark);
+}
+.sidebar .active {
+  font-weight: bold;
+}
+.sidebar .item a {
+  color: var(--dark);
+  text-decoration: none;
+}
+.sidebar .item a:hover {
+  color: var(--dark-lighter);
+}
+.sidebar .item a:active {
+  color: var(--dark-lightest);
+}
+.sidebar .logout {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px;
+}
+
+.content {
+  height: 100%;
+}
+
+
+/*
+ *  SUBMENU
+ */
+
+.settings_submenu {
+  background-color: var(--cream);
+  box-shadow: 1px 0px 5px var(--gray);
+  text-align: right;
+  padding: 15px;
+  font-size: 24px;
+  color: var(--dark);
+  text-shadow: -1px 0 var(--white), 0 1px var(--white), 1px 0 var(--white), 0 -1px var(--white);
+}
+.settings_submenu .item {
+  display: inline;
+  margin-left: 15px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--dark);
+}
+.settings_submenu .item:hover {
+  color: var(--dark-lighter);
+}
+.settings_submenu .item:active {
+  color: var(--dark-lightest);
+}
+
+/*
+ *  WIZARD SUBMENU
+ */
+
+.wizard_submenu {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  font-size: 24px;
+  color: var(--dark);
+}
+.wizard_submenu .item {
+  margin: 25px;
+  cursor: pointer;
+  background-color: var(--accent-bg-color);
+  padding: 10px;
+  width: 120px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid var(--accent-border-color);
+  box-shadow: 1px 0px 5px var(--gray);
+}
+.wizard_submenu .item:hover {
+  background-color: var(--accent-bg-color-lighter);
+}
+.wizard_submenu .item:active {
+  background-color: var(--accent-bg-color-lightest);
+}
+.wizard_submenu .prev {
+  float: left;
+}
+.wizard_submenu .next {
+  float: right;
+}
+
+/*
+ *  PROFILE
+ */
+
+
+
+/*
+ *  BOOKMARKS
+ */
+
+.content .bookmarks {
+ overflow: auto;
+ max-width: 100%;
+ height: 100%;
+ white-space: nowrap;
+}
+.content .bookmarks input {
+  background-color: white;
+  border: 2px solid rgba(0,0,0,0);
+  padding: 5px;
+}
+.content .bookmarks .category {
+  position: relative;
+  background-color: var(--accent-bg-color);
+  border: 1px solid var(--accent-border-color);
+  box-shadow: 1px 1px 5px var(--gray);
+  margin-left: 15px;
+  margin-top: 15px;
+  padding: 15px;
+  display: inline-block;
+  width: 200px;
+  vertical-align: top;
+}
+.content .bookmarks .category .categorytitle {
+  font-family: var(--font);
+  font-size: 18px;
+  display: inline;
+  width: 162px;
+  color: var(--dark);
+  background-color: rgba(0,0,0,0);
+  border-style: solid;
+  border-width: 0px 0px 2px 0px;
+  border-color: var(--white);
+}
+.content .bookmarks .category .remove {
+  position: absolute;
+  top: -10px;
+  right: -6px;
+  float: right;
+  font-size: 24px;
+  color: var(--red);
+  text-shadow: -1px 0 var(--white), 0 1px var(--white), 1px 0 var(--white), 0 -1px var(--white);
+}
+.content .bookmarks .category .bookmark {
+  margin-top: 10px;
+}
+.content .bookmarks .category .bookmark .left {
+  float: left;
+}
+.content .bookmarks .category .bookmark .right {
+  float: right;
+}
+.content .bookmarks .category .bookmark  .left input {
+  font-family: var(--font);
+  background-color: var(--alt-bg-color);
+  display: block;
+  border: 1px solid var(--gray);
+  line-height: 18px;
+  width: 160px;
+  color: var(--dark);
+}
+.content .bookmarks .category .bookmark .right .up, .bookmarks .category .bookmark .right .remove_bookmark, .bookmarks .category .bookmark .right .down {
+  text-align: center;
+  color: var(--white);
+  text-shadow: -1px 0 var(--gray), 0 1px var(--gray), 1px 0 var(--gray), 0 -1px var(--gray);
+}
+.content .bookmarks .category .bookmark_menu {
+  display: table;
+  width: 100%;
+  table-layout: fixed;
+}
+.content .bookmarks .category .bookmark_menu .bookmark_menu_item {
+  display: table-cell;
+  text-align: center;
+  padding: 10px 0px 0px 0px;
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  text-shadow: -1px 0 var(--gray), 0 1px var(--gray), 1px 0 var(--gray), 0 -1px var(--gray);
+}
+.content .bookmarks .add_category_slot {
+  display: inline-block;
+  margin-left: 15px;
+  margin-top: 30px;
+  font-size: 28px;
+}
+
+/*
+*  THEMES
+*/
+
+.content table {
+  margin: 15px;
+  padding-left: 15px;
+}
+.content table tr {}
+.content table tr th {
+  padding: 5px;
+  text-align: left;
+}
+.content table tr .title {
+  width: 200px;
+}
+.content table tr .author {
+  width: 200px;
+}
+.content table tr .active_users {
+  width: 100px;
+}
+.content table tr .rating {
+  width: 100px;
+}
+.content table tr td {
+  padding: 5px;
+}
+.content table tr td a {
+  color: var(--dark);
+}
+
+/*
+ *  ABOUT
+ */

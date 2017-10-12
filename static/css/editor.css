@@ -1,0 +1,46 @@
+#editor {
+  margin: 0;
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  left: 0;
+  right: 40px;
+}
+
+.documentation {
+  width: 40px;
+  position: absolute;
+  top: 60px;
+  right: 0;
+  bottom: 0;
+  background-color: var(--main-bg-color);
+  z-index: 100;
+  -webkit-transition: width 500ms; /* For Safari 3.1 to 6.0 */
+  transition: width 500ms;
+}
+
+.documentation .bar {
+  width: 40px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  background-color: var(--alt-bg-color);
+  border: 1px solid var(--alt-border-color);
+  text-align: center;
+  line-height: 40px;
+  cursor: pointer;
+  height: 100%;
+  font-weight: bold;
+  box-shadow: -1px 1px 5px var(--dark);
+  float: left
+}
+
+.documentation .docs {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  padding: 20px;
+  width: 560px;
+}
+.documentation .docs .title {
+  font-size: 32px;
+}

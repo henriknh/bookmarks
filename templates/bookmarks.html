@@ -1,0 +1,34 @@
+{% if bookmarks %}
+
+<div class="settings_submenu">
+  <div class="item" onclick="save_bookmarks()"><i class="fa fa-floppy-o" aria-hidden="true"></i> Save</div>
+</div>
+
+<div class="bookmarks">
+  {% for category in bookmarks %}
+    <div class="category">
+      <input class="categorytitle" type="text" placeholder="Category title" value="{{ category }}">
+      {% for bookmark in bookmarks[category] %}
+        <div class="bookmark">
+          <div class="left">
+            <input type="text" placeholder="Title" value="{{ bookmark }}">
+            <input type="text" placeholder="URL" value="{{ bookmarks[category][bookmark] }}">
+          </div>
+          <div class="right">
+            <div class="up" onclick="move_bookmark_up(this)"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
+            <div class="remove_bookmark" onclick="remove_bookmark_slot(this)"><i class="fa fa-minus" aria-hidden="true"></i></div>
+            <div class="down" onclick="move_bookmark_down(this)"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
+          </div>
+          <div class="clearfix"></div>
+        </div>
+      {% endfor %}
+      <div class="bookmark_menu">
+        <div class="bookmark_menu_item" onclick="remove_category(this)"><i class="fa fa-trash" aria-hidden="true"></i></div>
+        <div class="bookmark_menu_item" onclick="add_bookmark_slot(this)"><i class="fa fa-plus" aria-hidden="true"></i></div>
+      </div>
+    </div>
+  {% endfor %}
+  <div class="add_category_slot" onclick="add_category_slot(this)"><i class="fa fa-plus" aria-hidden="true"></i></div>
+
+</div>
+{% endif %}

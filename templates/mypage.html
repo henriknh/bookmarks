@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+  <script type=text/javascript src="{{url_for('static', filename='js/mypage.js') }}"></script>
+  {% if session['editor_css'] %}
+    <style>{{ session['editor_css'] }}</style>
+  {% else %}
+    <style>{{ session['css'] }}</style>
+  {% endif %}
+</head>
+<body>
+  {% if request.endpoint == 'settings.preview' %}
+    <preview>
+        <div class="left item" onclick="location.href = document.referrer;"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</div>
+        {% if session['editor_preview'] is not defined %}
+          <a class="right item" href={{ url_for('themes.settheme', id=session['preview_id'])}}>Use theme <i class="fa fa-check" aria-hidden="true"></i></a>
+        {% endif %}
+    </preview>
+  {% else %}
+    <menu>
+        <a class="item" href={{ url_for('settings.index')}}><i class="fa fa-cog" aria-hidden="true"></i></a>
+    </menu>
+  {% endif %}
+
+  {% if request.endpoint == 'settings.preview' %}
+    <home style="top:60px;">
+  {% else %}
+    <home>
+  {% endif  %}
+
+    <bookmarks>
+    {% for category in session['bookmarks'] %}
+      <category>
+      <categorytitle>{{ category }}</categorytitle>
+      {% for bookmark in session['bookmarks'][category] %}
+        {% if session['bookmarks'][category][bookmark]|is_url %}
+          <a href="{{ session['bookmarks'][category][bookmark] }}">{{ bookmark }}</a>
+        {% else %}
+          <a href="http://{{ session['bookmarks'][category][bookmark] }}">{{ bookmark }}</a>
+        {% endif %}
+      {% endfor %}
+    </category>
+    {% endfor %}
+    </bookmarks>
+
+    <search>
+      <input id="search" type="search" placeholder="Search..." onkeydown="searchInput(event)" autofocus="autofocus">
+      <button value="Search" onclick="search()"><i class="fa fa-search" aria-hidden="true"></i></button>
+    </search>
+    <script>
+      document.getElementById("search").focus();
+    </script>
+  </home>
+</body>
+</html>

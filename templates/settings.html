@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+  <script type=text/javascript src="{{url_for('static', filename='js/bookmarks.js') }}"></script>
+  <script type=text/javascript src="{{url_for('static', filename='js/editor.js') }}"></script>
+</head>
+<body>
+
+  <div class="sidebar">
+    <div class="item title"><a href="/"><i class="fa fa-angle-left" aria-hidden="true"></i> Bookmarks</a></div>
+
+    {% for item in menu_items %}
+      {% if item|lower == active %}
+        <div class="item active"><a href="/settings/{{ item|lower }}">{{ item }}</a></div>
+      {% else %}
+        <div class="item"><a href="/settings/{{ item|lower }}">{{ item }}</a></div>
+      {% endif %}
+    {% endfor %}
+
+    <div class="item logout"><a href="/logout">Logout</i></a></div>
+  </div>
+
+  <div class="content">
+    {% if active|lower == 'profile' %}
+      {% include "profile.html" %}
+    {% elif active|lower == 'bookmarks' %}
+      {% include "bookmarks.html" %}
+    {% elif active|lower == 'themes' %}
+      {% include "themes.html" %}
+    {% elif active|lower == 'about' %}
+      {% include "about.html" %}
+    {% endif %}
+  </div>
+
+<footer>
+  Henrik Nilsson Harnert
+</footer>
+
+
+</body>
+</html>
