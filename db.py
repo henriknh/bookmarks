@@ -1,6 +1,7 @@
 import sqlite3
 from flask import g, session
 import json
+import os.path
 
 DATABASE = 'db.db'
 
@@ -11,7 +12,11 @@ def dict_factory(cursor, row):
     return d
 
 def execute(query, args=()):
-    con = sqlite3.connect("db.db")
+
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    db_path = os.path.join(BASE_DIR, DATABASE)
+
+    con = sqlite3.connect(db_path)
     con.row_factory = dict_factory
     cur = con.cursor()
     cur.execute(query, args)
