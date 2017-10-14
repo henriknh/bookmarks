@@ -39,16 +39,16 @@ def wizard():
 def preview():
     if request.method == 'POST':
         session.pop('editor_preview', None)
-        session.pop('editor_id', None)
         session.pop('editor_css', None)
         json_data = request.get_json(force=True)
         if 'preview_id' in json_data:
             print("id")
+            session.pop('editor_id', None)
             session['preview_id'] = json_data['preview_id']
             session['editor_css'] = db.getCSS(json_data['preview_id'])
         else:
             print("!id")
-            session['editor_preview'] = "1"
+            session['editor_preview'] = True
             session['editor_css'] = json_data['editor_css']
         return "1"
     else:

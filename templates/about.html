@@ -1,1 +1,78 @@
-about.html
+<div class="settings_submenu">
+  <div class="title">About</div>
+</div>
+
+<div class="aboutcontent">
+  <p>
+    Hello! My name in <b>Henrik Nilsson Harnert</b>. And the reason I decided
+    to create this website was because after browsing
+    <a href="https://www.reddit.com/r/unixporn/">/r/unixporn</a> for a while I
+    noticed that many users had beautiful and personalized startup pages for
+    their browsers.
+  </p>
+
+  <p>
+    So I wanted to create a easy tool to customize a startup page that everyone
+    can use. More experienced user can modify their page with beautiful CSS
+    and the less experienced user can choose an already made theme from the
+    library!
+  </p>
+
+  <p>
+    This i a project I do in my spare time. If you have feedback or has found a
+    bug don't hesitate to contact me!
+  </p>
+
+  <div class="contact">
+    <a target="_blank" href="mailto:henrik.nilsson.harnert@gmail.com">
+      <i class="fa fa-envelope-o" aria-hidden="true"></i>
+       henrik.nilsson.harnert@gmail.com</a>
+    <br>
+    <a target="_blank" href="https://github.com/henriknh/bookmarks">
+      <i class="fa fa-github" aria-hidden="true">
+       </i>github.com/henriknh/bookmarks</a>
+  </p>
+
+  <!--<form action="/contact" method="post" enctype="text/plain">
+    <input type="text" name="name" placeholder="Name">
+    <input type="email" name="mail" placeholder="E-mail">
+    <textarea name="comment" placeholder="Comment"></textarea>
+    <button type="submit">Send</button>
+    <button type="reset">Reset</button>
+  </form>-->
+
+
+</div>
+
+<div class="donate">
+  <div class="text">
+    Donations are not necessary but help with hosting costs and a coffe to keep
+    me going <img src="{{url_for('static', filename='media/1f609.png') }}">
+  </div>
+
+  <form class="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="9T259XNX2Q3RS">
+    <input class="image" type="image" src="http://localhost:5000/static/media/paypal.svg" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+  </form>
+
+  <!-- Popup from https://github.com/danielquinn/bitcoin-donate -->
+  <div class="bitcoin">
+    <a href="bitcoin:17WSQfMWs1n37GXsTMVKgui7e1ceu23i3A">
+      <img src="{{url_for('static', filename='media/bitcoin.png') }}">
+    </a>
+  </div>
+</div>
+
+<script type="text/javascript" src="{{url_for('static', filename='js/jquery.qrcode.js') }}"></script>
+<script type="text/javascript" src="{{url_for('static', filename='js/btcdonate.js') }}"></script>
+<script>
+  btcdonate({
+  size: 100,
+  radius: 0
+});
+
+
+
+</script>

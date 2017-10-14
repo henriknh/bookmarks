@@ -11,6 +11,7 @@
   height: 100%;
   float: left;
   box-shadow: 1px 0px 5px var(--gray);
+  margin-right: 20px;
 }
 .sidebar .item {
   margin: 25px 25px 25px 25px;
@@ -42,6 +43,8 @@
 }
 
 .content {
+  width:auto;
+  overflow:hidden;
   height: 100%;
 }
 
@@ -51,15 +54,22 @@
  */
 
 .settings_submenu {
-  background-color: var(--cream);
-  box-shadow: 1px 0px 5px var(--gray);
-  text-align: right;
-  padding: 15px;
+  padding: 15px 0px 15px 0px;
   font-size: 24px;
   color: var(--dark);
+  margin: 20px 20px 20px 0px;
+  /*
+  background-color: var(--cream);
+  box-shadow: 1px 0px 5px var(--gray);
   text-shadow: -1px 0 var(--white), 0 1px var(--white), 1px 0 var(--white), 0 -1px var(--white);
+  */
+}
+.settings_submenu .title {
+  font-size: 36px;
+  display: inline;
 }
 .settings_submenu .item {
+  float: right;
   display: inline;
   margin-left: 15px;
   cursor: pointer;
@@ -134,8 +144,7 @@
   background-color: var(--accent-bg-color);
   border: 1px solid var(--accent-border-color);
   box-shadow: 1px 1px 5px var(--gray);
-  margin-left: 15px;
-  margin-top: 15px;
+  margin-right: 20px;
   padding: 15px;
   display: inline-block;
   width: 200px;
@@ -200,8 +209,7 @@
 }
 .content .bookmarks .add_category_slot {
   display: inline-block;
-  margin-left: 15px;
-  margin-top: 30px;
+  margin-top: 20px;
   font-size: 28px;
 }
 
@@ -210,8 +218,6 @@
 */
 
 .content table {
-  margin: 15px;
-  padding-left: 15px;
 }
 .content table tr {}
 .content table tr th {
@@ -225,7 +231,7 @@
   width: 200px;
 }
 .content table tr .active_users {
-  width: 100px;
+  width: 120px;
 }
 .content table tr .rating {
   width: 100px;
@@ -233,10 +239,79 @@
 .content table tr td {
   padding: 5px;
 }
-.content table tr td a {
+.content table tr td a, .content table tr td div {
   color: var(--dark);
+  cursor: pointer;
 }
 
 /*
  *  ABOUT
  */
+
+.aboutcontent {
+  width: 600px;
+}
+.aboutcontent p a {
+  text-decoration: none;
+  color: var(--dark-lightest);
+}
+.aboutcontent .contact {
+  margin-top: 40px;
+  text-align: center;
+}
+.aboutcontent .contact a {
+  text-decoration: none;
+  color: var(--dark-lightest);
+  line-height: 24px;
+}
+/*
+.aboutcontent form {
+  margin-top: 40px;
+  text-align: center;
+  width: 440px;
+  margin-left: 60px;
+}
+.aboutcontent form input {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.aboutcontent form textarea {
+  margin-bottom: 10px;
+  width: 100%;
+}
+.aboutcontent form textarea, .aboutcontent form input {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.aboutcontent form button {
+}
+*/
+
+.donate {
+  border-radius: 3px;
+  margin-top: 40px;
+  margin-left: 60px;
+  padding: 20px 20px 00px 20px;
+  float: left;
+  width: 400px;
+  display: block;
+  background-color: var(--cream);
+  box-shadow: 1px 1px 5px var(--gray);
+
+}
+.donate .text {
+  text-align: center;
+}
+.donate .text img {
+  height: 18px;
+}
+.donate .paypal, .donate .bitcoin {
+  width: 200px;
+  text-align: center;
+  float: left;
+  margin: 20px 0px 20px 0px;
+}
+.donate .paypal .image, .donate .bitcoin img {
+  width: 40px;
+}

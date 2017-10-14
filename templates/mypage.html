@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <title>Bookmarks</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
   <script type=text/javascript src="{{url_for('static', filename='js/mypage.js') }}"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
   {% if session['editor_css'] %}
     <style>{{ session['editor_css'] }}</style>
   {% else %}
@@ -51,6 +55,11 @@
     </search>
     <script>
       document.getElementById("search").focus();
+      $('#search').focus();
+      window.onload = function() {
+        document.getElementById("search").focus();
+      };
+      console.log(document.hasFocus());
     </script>
   </home>
 </body>
