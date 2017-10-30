@@ -14,13 +14,8 @@
           <div class="left">
             <input type="text" placeholder="Title" value="{{ bookmark }}">
             <input type="text" placeholder="URL" value="{{ bookmarks[category][bookmark] }}">
+            <div class="remove_bookmark" onclick="remove_bookmark_slot(this)"><i class="fa fa-times" aria-hidden="true"></i></div>
           </div>
-          <div class="right">
-            <div class="up" onclick="move_bookmark_up(this)"><i class="fa fa-angle-up" aria-hidden="true"></i></div>
-            <div class="remove_bookmark" onclick="remove_bookmark_slot(this)"><i class="fa fa-minus" aria-hidden="true"></i></div>
-            <div class="down" onclick="move_bookmark_down(this)"><i class="fa fa-angle-down" aria-hidden="true"></i></div>
-          </div>
-          <div class="clearfix"></div>
         </div>
       {% endfor %}
       <div class="bookmark_menu">
@@ -33,3 +28,8 @@
 
 </div>
 {% endif %}
+
+<script>
+  $('.category').arrangeable();
+  $('.bookmark').arrangeable();
+</script>

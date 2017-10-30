@@ -4,14 +4,43 @@ import json
 
 themes = Blueprint('themes', __name__)
 
-@themes.route('/themes', methods=['POST', 'GET'])
+@themes.route('/theme', methods=['POST', 'GET', 'PUT', 'DELETE'])
 def index():
-    if request.method == 'POST':
-        json = request.data.decode("utf-8")
-        #db.setTheme(id, title, json)
+    if request.method == 'POST': # Set theme
+        json_data = request.get_json(force=True)
+        id = json_data['theme_id']
+        db.setUsersTheme(id)
         return "1"
-    else:
+    elif request.method == 'GET': # Get current theme
         return db.getThemes()
+    elif request.method == 'PUT': # Create of update
+        json_data = request.get_json(force=True)
+        title = json_data['editor_title']
+        css = json_data['editor_css']
+        if session.get('editor_id'):
+            #update
+            id = session['editor_id']
+            db.setTheme(id, title, css)
+        else:
+            id = db.insertTheme(title, css)
+        db.setUsersTheme(id)
+        return "1"
+    elif request.method == 'DELETE': # Remove theme
+        json_data = request.get_json(force=True)
+        id = json_data['theme_id']
+        db.removeTheme(id)
+        return "1"
+
+@themes.route('/themes', methods=['POST', 'GET', 'PUT', 'DELETE'])
+def funcThemes():
+    if request.method == 'POST':
+        pass
+    elif request.method == 'GET':
+        return db.getThemes()
+    elif request.method == 'PUT':
+        pass
+    elif request.method == 'DELETE':
+        pass
 
 @themes.route('/settheme/<int:id>', methods=['GET'])
 def settheme(id):
@@ -29,8 +58,11 @@ def createtheme():
             id = session['editor_id']
             db.setTheme(id, title, css)
         else:
-            #createtheme
-            id = 1#db.insertTheme(title, css)
+            # TODO Insert new there to DB
+            id = db.insertTheme(title, css)
+
+            print(id)
+
         db.setUsersTheme(id)
         return "1"
 

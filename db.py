@@ -94,3 +94,6 @@ def insertTheme(title, css):
 
 def setTheme(id, title, css):
     rv,lastrowid = execute("UPDATE themes SET title=?, css=? WHERE id=?;", (title, css, id,))
+
+def removeTheme(id):
+    rv, lastrowid = execute("DELETE FROM themes WHERE id=? AND author=?;", (id,session['id'],))

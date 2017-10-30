@@ -122,7 +122,16 @@
  *  PROFILE
  */
 
+.profile_holder {
 
+}
+.profile_holder .holder_title {
+  margin-bottom: 15px;
+
+}
+.profile_holder input {
+  margin-bottom: 15px;
+}
 
 /*
  *  BOOKMARKS
@@ -154,44 +163,34 @@
   font-family: var(--font);
   font-size: 18px;
   display: inline;
-  width: 162px;
+  width: 190px;
   color: var(--dark);
-  background-color: rgba(0,0,0,0);
   border-style: solid;
   border-width: 0px 0px 2px 0px;
   border-color: var(--white);
-}
-.content .bookmarks .category .remove {
-  position: absolute;
-  top: -10px;
-  right: -6px;
-  float: right;
-  font-size: 24px;
-  color: var(--red);
-  text-shadow: -1px 0 var(--white), 0 1px var(--white), 1px 0 var(--white), 0 -1px var(--white);
+  background-color: rgba(0,0,0,0);
+  background-color: var(--white);
+  border-color: var(--gray);
+  border-width: 1px;
 }
 .content .bookmarks .category .bookmark {
   margin-top: 10px;
-}
-.content .bookmarks .category .bookmark .left {
-  float: left;
-}
-.content .bookmarks .category .bookmark .right {
-  float: right;
-}
-.content .bookmarks .category .bookmark  .left input {
-  font-family: var(--font);
-  background-color: var(--alt-bg-color);
-  display: block;
+  background-color: var(--white);
   border: 1px solid var(--gray);
+}
+.content .bookmarks .category .bookmark input {
+  font-family: var(--font);
+  background-color: rgba(0,0,0,0);
+  display: block;
   line-height: 18px;
   width: 160px;
   color: var(--dark);
 }
-.content .bookmarks .category .bookmark .right .up, .bookmarks .category .bookmark .right .remove_bookmark, .bookmarks .category .bookmark .right .down {
-  text-align: center;
-  color: var(--white);
-  text-shadow: -1px 0 var(--gray), 0 1px var(--gray), 1px 0 var(--gray), 0 -1px var(--gray);
+.content .bookmarks .category .bookmark input:first-of-type {
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.content .bookmarks .category .bookmark .remove_bookmark {
+  float: right;
 }
 .content .bookmarks .category .bookmark_menu {
   display: table;

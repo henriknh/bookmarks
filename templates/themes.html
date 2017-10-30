@@ -1,6 +1,6 @@
 <div class="settings_submenu">
   <div class="title">Themes</div>
-  <div class="item" onclick="editor()"><i class="fa fa-plus" aria-hidden="true"></i> Create theme</div>
+  <div class="item" onclick="create_theme()"><i class="fa fa-plus" aria-hidden="true"></i> Create theme</div>
 </div>
 
 {% macro listTheme(theme, self=false) -%}
@@ -24,12 +24,11 @@
         {% endif %}
       {% endfor %}
     </td>
-    <td><div onclick="preview({{ theme['id'] }});"><i class="fa fa-eye" aria-hidden="true"></i></div></td>
-    <td><a href="{{ url_for('themes.settheme', id=theme['id'])}}"><i class="fa fa-check" aria-hidden="true"></i></a></td>
-</td>
+    <td><div onclick="preview_theme({{ theme['id'] }});"><i class="fa fa-eye" aria-hidden="true"></i></div></td>
+    <td><div onclick="use_theme({{ theme['id'] }});"><i class="fa fa-check" aria-hidden="true"></i></div></td>
     {% if self %}
-      <td><div onclick="editor({{ theme['id'] }});"><i class="fa fa-pencil" aria-hidden="true"></i></div></td>
-      <td><i class="fa fa-trash" aria-hidden="true"></i></td>
+      <td><div onclick="edit_theme({{ theme['id'] }});"><i class="fa fa-pencil" aria-hidden="true"></i></div></td>
+      <td><div onclick="remove_theme({{ theme['id'] }}, '{{ theme['title'] }}');"><i class="fa fa-trash" aria-hidden="true"></i></div></td>
     {% endif %}
   </tr>
 {%- endmacro %}

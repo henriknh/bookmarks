@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/general.css') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/editor.css') }}">
   <script type=text/javascript src="{{url_for('static', filename='js/editor.js') }}"></script>
-  <script type=text/javascript src="{{url_for('static', filename='js/bookmarks.js') }}"></script>
+  <script type=text/javascript src="{{url_for('static', filename='js/themes.js') }}"></script>
 </head>
 <body>
 
@@ -14,7 +14,7 @@
   <a class="left item" href="{{ url_for('settings.themes')}}"><i class="fa fa-angle-left" aria-hidden="true"></i> Back</a>
   <input id="title" class="left" type="text" placeholder="Title" value="{{ session['editor_title'] }}" autofocus>
   <div class="right item" onclick="publish_and_go_back();">Save &amp Use theme <i class="fa fa-check" aria-hidden="true"></i></div>
-  <div class="right item" onclick="preview();">Preview <i class="fa fa-eye" aria-hidden="true"></i></div>
+  <div class="right item" onclick="preview_theme();">Preview <i class="fa fa-eye" aria-hidden="true"></i></div>
 </preview>
 
 <pre id="editor">{{ session['editor_css'] }}</pre>

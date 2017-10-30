@@ -1,15 +1,3 @@
-function move_bookmark_up (e) {
-  if(e.parentNode.parentNode.previousElementSibling.className == "bookmark") {
-    e.parentNode.parentNode.parentNode.insertBefore(e.parentNode.parentNode, e.parentNode.parentNode.previousElementSibling);
-  }
-}
-
-function move_bookmark_down (e) {
-  if(e.parentNode.parentNode.nextElementSibling.className == "bookmark") {
-    e.parentNode.parentNode.parentNode.insertBefore(e.parentNode.parentNode.nextElementSibling, e.parentNode.parentNode);
-  }
-}
-
 function remove_bookmark_slot(e) {
   e.parentNode.parentNode.remove()
 }
@@ -19,8 +7,8 @@ function remove_category(e) {
 }
 
 function add_bookmark_slot(e) {
-  console.log(create_bookmark_container());
-    e.parentNode.parentNode.insertBefore(create_bookmark_container(), e.parentNode);
+  e.parentNode.parentNode.insertBefore(create_bookmark_container(), e.parentNode);
+  $('.bookmark').arrangeable();
 }
 
 function add_category_slot(e) {
@@ -57,19 +45,13 @@ function add_category_slot(e) {
     d1.appendChild(d2);
 
     e.parentNode.insertBefore(d1, e);
+
+    $('.category').arrangeable();
 }
 
 function create_bookmark_container() {
   var d = document.createElement("div");
   d.className = "bookmark";
-
-
-  var dl = document.createElement("div");
-  dl.className = "left";
-  var dr = document.createElement("div");
-  dr.className = "right";
-  var clear = document.createElement("div");
-  clear.className = "clearfix";
 
   var i1 = document.createElement("input");
   i1.type = "text"
@@ -77,37 +59,16 @@ function create_bookmark_container() {
   var i2 = document.createElement("input");
   i2.type = "text"
   i2.placeholder = "URL"
-
-  dl.appendChild(i1);
-  dl.appendChild(i2);
-
-  var up = document.createElement("div");
-  up.className = "up";
-  up.innerHTML = '<i class="fa fa-angle-up" aria-hidden="true"></i>'
-  up.onclick = function () {
-    move_bookmark_up(this);
-  };
   var r = document.createElement("div");
   r.className = "remove_bookmark";
-  r.innerHTML = '<i class="fa fa-minus" aria-hidden="true"></i>'
+  r.innerHTML = '<i class="fa fa-times" aria-hidden="true"></i>'
   r.onclick = function () {
     remove_bookmark_slot(this);
   };
 
-  var down = document.createElement("div");
-  down.className = "down";
-  down.innerHTML = '<i class="fa fa-angle-down" aria-hidden="true"></i>'
-  down.onclick = function () {
-    move_bookmark_down(this);
-  };
-
-  dr.appendChild(up);
-  dr.appendChild(r);
-  dr.appendChild(down);
-
-  d.appendChild(dl)
-  d.appendChild(dr)
-  d.appendChild(clear)
+  d.appendChild(i1)
+  d.appendChild(i2)
+  d.appendChild(r)
 
   return d
 }
