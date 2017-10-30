@@ -37,6 +37,7 @@ def valid_login(email, password):
     if not user_exists(email):
         flash("No user with that email is registered")
         valid = False
+        return valid
     if not password_match(email, password):
         flash("Invalid password")
         valid = False
@@ -62,7 +63,15 @@ def user_exists(email):
     return db.getUserWithEmail(email)
 
 def password_match(email, password):
-    return check_password_hash(db.getUserWithEmail(email)['password'], password)
+
+    user = db.getUserWithEmail(email)
+
+    if not user:
+        return False
+    else:
+        print(db.getUserWithEmail(email)['password'])
+        print(check_password_hash(db.getUserWithEmail(email)['password'], password))
+        return check_password_hash(db.getUserWithEmail(email)['password'], password)
 
 def password_hash(password):
     return generate_password_hash(password)
