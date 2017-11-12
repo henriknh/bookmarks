@@ -4,7 +4,7 @@ import json
 
 settings = Blueprint('settings', __name__)
 
-menu_items = ['Profile', 'Bookmarks', 'Themes', 'About']
+menu_items = ['Profile', 'Bookmarks', 'Themes', 'Search Engines', 'About']
 
 @settings.route('/settings', methods=['POST', 'GET'])
 def index():
@@ -21,11 +21,11 @@ def bookmarks():
 @settings.route('/settings/themes', methods=['POST', 'GET'])
 def themes():
     themes = db.getThemes()
-    for theme in themes:
-        author = db.getUser(theme['author'])
-        if author:
-            theme['author_displayname'] = author['displayname']
     return render_template('settings.html', active="themes", menu_items=menu_items, themes=themes)
+
+@settings.route('/settings/search+engines', methods=['POST', 'GET'])
+def search_engines():
+    return render_template('settings.html', active="search engines", menu_items=menu_items)
 
 @settings.route('/settings/about', methods=['POST', 'GET'])
 def about():

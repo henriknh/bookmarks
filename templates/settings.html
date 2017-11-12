@@ -23,7 +23,7 @@
       {% if item|lower == active %}
         <div class="item active"><a href="/settings/{{ item|lower }}">{{ item }}</a></div>
       {% else %}
-        <div class="item"><a href="/settings/{{ item|lower }}">{{ item }}</a></div>
+        <div class="item"><a href="/settings/{{ item|lower|urlencode }}">{{ item }}</a></div>
       {% endif %}
     {% endfor %}
 
@@ -31,15 +31,7 @@
   </div>
 
   <div class="content">
-    {% if active|lower == 'profile' %}
-      {% include "profile.html" %}
-    {% elif active|lower == 'bookmarks' %}
-      {% include "bookmarks.html" %}
-    {% elif active|lower == 'themes' %}
-      {% include "themes.html" %}
-    {% elif active|lower == 'about' %}
-      {% include "about.html" %}
-    {% endif %}
+    {% include (active|lower + ".html") %}
   </div>
 
 <footer>

@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, url_for, redirect, session
 from werkzeug.utils import secure_filename
 from functools import wraps
 import json
+import urllib.parse
 
 import config
 from bookmarks import bookmarks
@@ -45,6 +46,10 @@ def is_url(field):
     if field.startswith("http://") or field.startswith("https://"):
             return True
     return False
+
+@app.template_filter('urlencode')
+def urlencode_filter(s):
+    return urllib.parse.quote_plus(s)
 
 if __name__ == "__main__":
   app.run(host='0.0.0.0', debug=config.DEBUG)

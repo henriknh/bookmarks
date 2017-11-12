@@ -6,13 +6,8 @@
 {% macro listTheme(theme, self=false) -%}
   <tr>
     <td>{{ theme['title'] }}</td>
-    {% if theme['author_displayname'] %}
-      <td>{{ theme['author_displayname'] }}</td>
-    {% else %}
-      <td>anon</td>
-    {% endif%}
     <td>{{ theme['active_users'] }}</td>
-    <td>
+    <!--<td>
       {% set stars = theme['rating'] %}
       {% for i in range(0, 5) %}
         {% if (theme['rating'] - i) > 0 %}
@@ -23,7 +18,7 @@
           {% endif %}
         {% endif %}
       {% endfor %}
-    </td>
+    </td>-->
     <td><div onclick="preview_theme({{ theme['id'] }});"><i class="fa fa-eye" aria-hidden="true"></i></div></td>
     <td><div onclick="use_theme({{ theme['id'] }});"><i class="fa fa-check" aria-hidden="true"></i></div></td>
     {% if self %}
@@ -35,9 +30,8 @@
 <table>
   <tr>
     <th class="title">Title</th>
-    <th class="author">Author</th>
     <th class="active_users">Active users</th>
-    <th class="rating">Rating</th>
+    <!--<th class="rating">Rating</th>-->
   </tr>
   {% for theme in themes %}
     {% if theme['author'] == session['id'] %}

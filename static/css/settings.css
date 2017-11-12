@@ -183,7 +183,7 @@
   background-color: rgba(0,0,0,0);
   display: block;
   line-height: 18px;
-  width: 160px;
+  width: 185px;
   color: var(--dark);
 }
 .content .bookmarks .category .bookmark input:first-of-type {
@@ -191,6 +191,8 @@
 }
 .content .bookmarks .category .bookmark .remove_bookmark {
   float: right;
+  margin-right: -6px;
+  margin-top: -74px;
 }
 .content .bookmarks .category .bookmark_menu {
   display: table;
@@ -224,7 +226,7 @@
   text-align: left;
 }
 .content table tr .title {
-  width: 200px;
+  width: 300px;
 }
 .content table tr .author {
   width: 200px;
